@@ -15,4 +15,4 @@ app.use("/check", checkRouter);
 const leaderboardRouter = require("./routes/leaderboard");
 app.use("/leaderboard", leaderboardRouter);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`uom.Mahjong-system listening on port ${port}!`));
