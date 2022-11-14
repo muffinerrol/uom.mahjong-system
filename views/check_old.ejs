@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+  <form>
+    <input type="text" name="query" size="20">
+    <input type="submit" value="Google!"></button>
+  </form>
+  <br>
+  
+  <% if (locals.names) { %>
+
+    <form>
+      <select name="name" style="width:150px">
+        <% locals.names.forEach(name => { %>
+          <option value=<%= name.toString().replace(/ /g,"+") %>><%= name %></option>
+        <% }) %>
+      </select> 
+      <input type="submit" value="What's my score!"></button>
+    </form>
+  
+  <% } if (locals.score) { %>
+
+    Player name: <%= locals.name.replace(/\+/g," ") %><br>
+    Score: <%= locals.score %><br>
+    Ranking: <%= locals.rank %>/<%= locals.playerno %><br>
+  
+  <% } %>
+
+  </body>
+</html>

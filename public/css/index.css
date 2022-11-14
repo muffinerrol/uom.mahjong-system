@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "Futura-Heavy";
+  src: url(../fonts/Futura-Heavy.woff);
+}
+
+@font-face {
+  font-family: "Quicksand-Medium";
+  src: url(../fonts/Quicksand-Medium.woff);
+}
+
+body {
+  background-color: rgb(255, 234, 196);
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  table-layout: fixed;
+}
+
+footer {
+  text-align: center;
+  font-family: "Quicksand-Medium";
+  font-size: 12px;
+}
+
+/*
+tr {
+  outline: 1px solid black;
+}
+
+td {
+  outline: 1px solid black;
+}
+*/
+
+div.navBar {
+  text-align: center;
+}
+
+ul.navBar {
+  display: inline-block;
+  width: 600px;
+  list-style-type: none;
+  margin: 2px;
+  padding: 0;
+  overflow: hidden;
+}
+
+li.navBar {
+  float: left;
+  border-right: 3px solid rgb(255, 234, 196);
+  border-radius:10px 10px 0 0;
+}
+
+li.navBarActive {
+  float: left;
+  background-color: white;
+  border-right: 3px solid rgb(255, 234, 196);
+  border-radius:10px 10px 0 0;
+}
+
+li.navBar:hover:not(.navBarActive) {
+  background-color: rgb(255, 196, 0);
+}
+
+a.navBar {
+  font-family: "Quicksand-Medium";
+  display: block;
+  text-align: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  color:black;
+}
+
+.pageHead {
+  font-family: "Futura-Heavy";
+  font-size: 60px;
+}
+
+.pageDesc {
+  font-family: "Quicksand-Medium";
+  font-size: 20px;
+}
+
+.pageCont {
+  font-family: "Quicksand-Medium";
+}
+
+.pageNumber {
+  font-family: "Futura-Heavy";
+  font-size: 60px;
+}
+
+#query {
+  width: 70%;
+}
+
+#name {
+  width: 70%;
+}

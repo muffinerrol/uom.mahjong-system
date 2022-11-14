@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Test">
+        <title>Check your score - UoM Mahjong Society</title>
+        <link rel="stylesheet" type="text/css" href="/css/check.css" />
+    </head>
+    <body>
+        <!--This is a comment-->
+        <header>
+            <div class="navBar">
+            <ul class="navBar">
+                <li class="navBar"><a class="navBar" href="/">Home</a></li>
+                <li class="navBarActive"><a class="navBar" href="/check">Check your score</a></li>
+                <li class="navBar"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
+                <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="/img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+            </ul>
+            </div>
+        </header>
+        <main>
+            <div>
+            <table style="border-radius: 10px; padding: 5px; background: white;">
+                <tr class="pageHead" >
+                    <td colspan="2">
+                        Check
+                    </td>
+                </tr>
+                <tr class="pageDesc">
+                    <td colspan="2">
+                        Check your score on the monthly leaderboard.
+                    </td>
+                </tr>
+                <tr><td><br></td></tr>
+                <tr class="pageCont">
+                    <td style="width: 300px">
+                        <form>
+                        <label for="query">Search for a name</label><br>
+                        <input type="text" id="query" name="query">
+                        <input type="submit" value="Google!">
+                        </form>
+                    </td>
+                    <td style="width: 200px">
+                        <% if (locals.names && locals.names.length > 0 && !locals.score) { %>
+                        <form>
+                        <label for="name">Choose a player</label><br>
+                        <select oninput="this.form.submit()" name="name" id="name">
+                            <option value="Null">Choose here!</option>
+                            <% locals.names.forEach(name => { %>
+                                <option value=<%= name.toString().replace(/ /g,"+") %>><%= name %></option>
+                            <% }) %>
+                        </select>
+                        </form>
+                        <% } else if (locals.score) { %>
+                        <label for="name">Choose the player</label><br>
+                        <select name="name" id="name">
+                                <option value="Null"><%= locals.name %></option>
+                        </select>     
+                        <% } else { %>
+                        <label for="name">Choose the player</label><br>
+                        <select name="name" id="name">
+                                <option value="Null">No results!</option>
+                        </select>                      
+                        <% } %>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <br>
+            <div>
+            <table>
+                <tr class="pageCont" style="color: black">
+                    <td>
+                        Score
+                    </td>
+                    <td style="width:5px"></td>
+                    <td>
+                        Rank
+                    </td>
+                </tr>
+                <tr class="pageNumber">
+                    <td style="width: 170px; padding: 5px; border-radius:10px; background-color: white;">
+                        <%- locals.score ? locals.score : '0' %>
+                    </td>
+                    <td style="width:5px"></td>
+                    <td style="border-radius:10px; padding: 5px; background-color: white;">
+                        <%- locals.rank && locals.playerno ? `${locals.rank}/${locals.playerno}` : '0/0' %>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <br>
+        </main>
+        <footer>
+            <i>©2022 The University of Manchester Mahjong Society, all rights reserved</i>
+        </footer>
+    </body>
+</html>
