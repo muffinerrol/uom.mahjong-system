@@ -86,17 +86,5 @@ a.navBar {
 
 .pageCont {
   font-family: "Quicksand-Medium";
-}
-
-.pageNumber {
-  font-family: "Futura-Heavy";
-  font-size: 60px;
-}
-
-#query {
-  width: 70%;
-}
-
-#name {
-  width: 70%;
+  font-size: 16px;
 }
