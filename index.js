@@ -6,7 +6,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.sendFile('views/index.html', { root : __dirname });
 })
 
 const checkRouter = require("./routes/check");
@@ -14,5 +14,9 @@ app.use("/check", checkRouter);
 
 const leaderboardRouter = require("./routes/leaderboard");
 app.use("/leaderboard", leaderboardRouter);
+
+app.use((req, res, next) => {
+    res.status(404).sendFile('views/404.html', { root : __dirname });
+})
 
 app.listen(port, () => console.log(`uom.Mahjong-system listening on port ${port}!`));
