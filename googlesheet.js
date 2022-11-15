@@ -57,7 +57,7 @@ exports.fetchScore = async function (name) {
             playerScore[1] = playerData[i][1] == playerData[i - 1][1] ? playerScore[1] : i + 1;
         };
 
-        if (playerData[i][1] && playerData[i][0].includes(name)) {
+        if (playerData[i][1] && playerData[i][0] == name) {
             playerScore[0] = playerData[i][1];
             break;
         }

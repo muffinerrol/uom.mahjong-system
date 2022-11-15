@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta name="description" content="Test">
         <title>Check your score - UoM Mahjong Society</title>
-        <link rel="stylesheet" type="text/css" href="/css/check.css" />
+        <link rel="stylesheet" type="text/css" href="/css/check.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
     </head>
     <body>
         <!--This is a comment-->
@@ -52,13 +54,13 @@
                         </select>
                         </form>
                         <% } else if (locals.score) { %>
-                        <label for="name">Choose the player</label><br>
-                        <select name="name" id="name">
+                        <label for="name">Choose a player</label><br>
+                        <select name="name" id="name" disabled>
                                 <option value="Null"><%= locals.name %></option>
                         </select>     
                         <% } else { %>
-                        <label for="name">Choose the player</label><br>
-                        <select name="name" id="name">
+                        <label for="name">Choose a player</label><br>
+                        <select name="name" id="name" disabled>
                                 <option value="Null">No results!</option>
                         </select>                      
                         <% } %>
@@ -80,13 +82,14 @@
                 </tr>
                 <tr class="pageNumber">
                     <td style="width: 170px; padding: 5px; border-radius:10px; background-color: white;">
-                        <%- locals.score ? locals.score : '0' %>
+                        <div class="counter" data-target=<%= locals.score ? locals.score : '0' %>>0</div>
                     </td>
                     <td style="width:5px"></td>
                     <td style="border-radius:10px; padding: 5px; background-color: white;">
-                        <%- locals.rank && locals.playerno ? `${locals.rank}/${locals.playerno}` : '0/0' %>
+                        <span class="counter" data-target=<%= locals.rank ? locals.rank : '0' %>>0</span>/<%= locals.playerno ? locals.playerno : '0' %>
                     </td>
                 </tr>
+                <script src="/js/counter.js"></script> <!--The script for the counter animation has to be below the actual counters!-->
             </table>
             </div>
             <br>
@@ -95,4 +98,5 @@
             <i>©2022 The University of Manchester Mahjong Society, all rights reserved</i>
         </footer>
     </body>
+
 </html>
