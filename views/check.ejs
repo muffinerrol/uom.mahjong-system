@@ -18,7 +18,8 @@
                 <li class="navBar"><a class="navBar" href="/">Home</a></li>
                 <li class="navBarActive"><a class="navBar" href="/check">Check your score</a></li>
                 <li class="navBar"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
-                <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="/img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+                <li class="navBar"><a class="navBar" href="/rename">Change your name</a></li>
+                <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
             </ul>
             </div>
         </header>
@@ -40,7 +41,7 @@
                     <td style="width: 300px">
                         <form>
                         <label for="query">Search for a name</label><br>
-                        <input type="text" id="query" name="query">
+                        <input type="text" id="query" name="query" required>
                         <input type="submit" value="Google!">
                         </form>
                     </td>
@@ -51,7 +52,7 @@
                         <select oninput="this.form.submit()" name="name" id="name">
                             <option value="Null">Choose here!</option>
                             <% locals.names.forEach(name => { %>
-                                <option value=<%= name.toString().replace(/ /g,"+") %>><%= name %></option>
+                                <option value='<%= name.toString() %>'><%= name %></option>
                             <% }) %>
                         </select>
                         </form>

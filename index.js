@@ -15,6 +15,9 @@ app.use("/check", checkRouter);
 const leaderboardRouter = require("./routes/leaderboard");
 app.use("/leaderboard", leaderboardRouter);
 
+const renameRouter = require("./routes/rename");
+app.use("/rename", renameRouter);
+
 app.use((req, res, next) => {
     res.status(404).sendFile('views/404.html', { root : __dirname });
 })

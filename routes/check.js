@@ -15,14 +15,10 @@ router.get('/', async (req, res) => {
 
     } else if (query.name) {
 
-        const nameSpace = query.name.replace(/\+/g," ");
+        const nameSpace = query.name;
         const scoreData = await sheetCommands.fetchScore(nameSpace);
         res.render('check', { name: nameSpace, score: scoreData[0], rank: scoreData[1], playerno: scoreData[2] });
     
-    } else if (query.query == "" || query.name == "") {
-
-        return res.redirect('/check');
-
     } else {
 
         res.render('check');

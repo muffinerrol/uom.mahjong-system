@@ -106,11 +106,30 @@ exports.searchNameScoreless = async function (name) {
 
     for (const row of playerScoreSheet.data.values) {
         if (row[0] && row[0].toLowerCase().includes(searchTerm)) {
-            searchList.push([row[0], row[2]]);
+            searchList.push(row[0]);
         }
     };
 
     return searchList;
+}
+
+//fetches the studentID using exactly matched name
+exports.fetchID = async function (name) {
+    const playerScoreSheet = await sheets.spreadsheets.values.get({
+        auth,
+        spreadsheetId: sheetId,
+        range: "player!A2:C500"
+    });
+
+    let studentID;
+
+    for (const row of playerScoreSheet.data.values) {
+        if (row[0] && row[0] == name) {
+            studentID = row[2];
+        }
+    };
+
+    return studentID;
 }
 
 //updates the player name in the leaderboard
