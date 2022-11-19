@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="UoM Mahjong leaderboard system.">
         <title>The leaderboard - UoM Mahjong Society</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" type="text/css" href="/css/leaderboard.css">
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -12,16 +13,30 @@
     </head>
     <body>
         <!--This is a comment-->
+        <div class="resizer">
         <header>
             <div class="navBar">
-            <ul class="navBar">
-                <li class="navBar"><a class="navBar" href="/">Home</a></li>
-                <li class="navBar"><a class="navBar" href="/check">Check your score</a></li>
-                <li class="navBarActive"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
-                <li class="navBar"><a class="navBar" href="/rename">Change your name</a></li>
-                <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
-            </ul>
-            </div>
+                <ul class="navBar">
+                    <li class="navBar"><a class="navBar" href="/">Home</a></li>
+                    <li class="navBar"><a class="navBar" href="/check">Check your score</a></li>
+                    <li class="navBarActive"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
+                    <li class="navBar"><a class="navBar" href="/rename">Change your name</a></li>
+                    <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+                </ul>
+                <ul class="navDrop">
+                    <span class="dropdown">
+                        <li class="navBarActive"><a class="navBar" onclick='document.getElementById("menu").classList.toggle("show");'>The leaderboard</a>
+                        <div id="menu" class="dropdown-content">
+                            <a href="/">Home</a>
+                            <a href="/check">Check your score</a>
+                            <a href="/leaderboard">The leaderboard</a>
+                            <a href="/rename">Change your name</a>
+                        </div>
+                        </li>
+                    </span>
+                    <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+                </ul>
+                </div>
         </header>
         <main>
             <div>
@@ -42,15 +57,15 @@
             <div>
             <table style="border-spacing: 0 5px;">
                 <tr class="pageCont" style="color: black">
-                    <td style="width:50px;">
+                    <td style="width:10%;">
                         Rank
                     </td>
-                    <td style="width:5px"></td>
+                    <td style="width:1%"></td>
                     <td>
                         Player name
                     </td>
-                    <td style="width:2px"></td>
-                    <td style="width:100px">
+                    <td style="width:1%"></td>
+                    <td style="width:20%">
                         Score
                     </td>
                 </tr>
@@ -76,5 +91,6 @@
         <footer>
             <i>©2022 The University of Manchester Mahjong Society, all rights reserved</i>
         </footer>
+        </div>
     </body>
 </html>

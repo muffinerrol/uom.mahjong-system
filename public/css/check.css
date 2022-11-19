@@ -34,13 +34,15 @@ td {
 }
 */
 
+/* Navigation bar */
+
 div.navBar {
   text-align: center;
 }
 
-ul.navBar {
+ul.navBar, ul.navDrop {
   display: inline-block;
-  width: 600px;
+  width: 100%;
   list-style-type: none;
   margin: 2px;
   padding: 0;
@@ -71,31 +73,119 @@ a.navBar {
   padding: 10px 10px;
   text-decoration: none;
   color:black;
+  cursor: pointer;
 }
 
-.pageHead {
-  font-family: "Futura-Heavy";
-  font-size: 60px;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0px 10px 10px 10px;
 }
 
-.pageDesc {
+.dropdown-content a {
+  float: none;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: black;
   font-family: "Quicksand-Medium";
-  font-size: 20px;
+  display: block;
+  text-align: left;
+  border-radius: 10px;
 }
 
-.pageCont {
-  font-family: "Quicksand-Medium";
+.dropdown-content a:hover {
+  background-color: rgb(255, 196, 0);
 }
 
-.pageNumber {
-  font-family: "Futura-Heavy";
-  font-size: 60px;
+.show {
+  background-color: white;
+  display: block;
+}
+
+/* Body */
+
+div.resizer {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  background-color: rgb(255, 234, 196);
+}
+
+table {
+  width: 100%;
 }
 
 #query {
   width: 70%;
 }
 
-#name {
-  width: 70%;
+/* Viewport related */
+
+@media only screen and (max-width: 600px) {
+  .desktop, ul.navBar {
+    display: none;
+  }
+
+  .pageHead {
+    font-family: "Futura-Heavy";
+    font-size: max(10vw, 35px);
+  }
+  
+  .pageDesc {
+    font-family: "Quicksand-Medium";
+    font-size: 3.33vw;
+  }
+  
+  .pageCont {
+    font-family: "Quicksand-Medium";
+    font-size: 2.67vw;
+  }
+
+  footer {
+    text-align: center;
+    font-family: "Quicksand-Medium";
+    font-size: 2vw;
+  }
+
+  #name {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .mobile, ul.navDrop {
+    display: none;
+  }
+
+  .pageHead {
+    font-family: "Futura-Heavy";
+    font-size: 60px;
+  }
+  
+  .pageDesc {
+    font-family: "Quicksand-Medium";
+    font-size: 20px;
+  }
+  
+  .pageCont {
+    font-family: "Quicksand-Medium";
+    font-size: 16px;
+  }
+
+  footer {
+    text-align: center;
+    font-family: "Quicksand-Medium";
+    font-size: 12px;
+  }
+
+  #name {
+    width: 80%;
+  }
 }

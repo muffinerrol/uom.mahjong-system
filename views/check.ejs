@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="UoM Mahjong score-check system.">
         <title>Check your score - UoM Mahjong Society</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" type="text/css" href="/css/check.css">
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -12,16 +13,30 @@
     </head>
     <body>
         <!--This is a comment-->
+        <div class="resizer">
         <header>
             <div class="navBar">
-            <ul class="navBar">
-                <li class="navBar"><a class="navBar" href="/">Home</a></li>
-                <li class="navBarActive"><a class="navBar" href="/check">Check your score</a></li>
-                <li class="navBar"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
-                <li class="navBar"><a class="navBar" href="/rename">Change your name</a></li>
-                <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
-            </ul>
-            </div>
+                <ul class="navBar">
+                    <li class="navBar"><a class="navBar" href="/">Home</a></li>
+                    <li class="navBarActive"><a class="navBar" href="/check">Check your score</a></li>
+                    <li class="navBar"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
+                    <li class="navBar"><a class="navBar" href="/rename">Change your name</a></li>
+                    <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+                </ul>
+                <ul class="navDrop">
+                    <span class="dropdown">
+                        <li class="navBarActive"><a class="navBar" onclick='document.getElementById("menu").classList.toggle("show");'>Check your score</a>
+                        <div id="menu" class="dropdown-content">
+                            <a href="/">Home</a>
+                            <a href="/check">Check your score</a>
+                            <a href="/leaderboard">The leaderboard</a>
+                            <a href="/rename">Change your name</a>
+                        </div>
+                        </li>
+                    </span>
+                    <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+                </ul>
+                </div>
         </header>
         <main>
             <div>
@@ -36,16 +51,17 @@
                         Check your score on the monthly leaderboard.
                     </td>
                 </tr>
-                <tr><td><br></td></tr>
-                <tr class="pageCont">
-                    <td style="width: 300px">
+                <!--Desktop version-->
+                <tr class="pageCont desktop"><td><br></td></tr>
+                <tr class="pageCont desktop">
+                    <td>
                         <form>
                         <label for="query">Search for a name</label><br>
                         <input type="text" id="query" name="query" required>
                         <input type="submit" value="Google!">
                         </form>
                     </td>
-                    <td style="width: 200px">
+                    <td>
                         <% if (locals.names && locals.names.length > 0 && !locals.score) { %>
                         <form>
                         <label for="name">Choose a player</label><br>
@@ -69,6 +85,40 @@
                         <% } %>
                     </td>
                 </tr>
+                <!--Mobile version-->
+                <tr class="pageCont mobile">
+                    <td>
+                        <form>
+                        <label for="query">Search for a name</label><br>
+                        <div style="display: flex;"><input type="text" name="query" size="1px" style="flex: 1; flex-basis: 0;" required>&nbsp;<input type="submit" value="Google!"></div>
+                        </form>
+                    </td>
+                </tr>
+                <tr class="pageCont mobile">
+                    <td>
+                        <% if (locals.names && locals.names.length > 0 && !locals.score) { %>
+                            <form>
+                            <label for="name">Choose a player</label><br>
+                            <select oninput="this.form.submit()" name="name" id="name">
+                                <option value="Null">Choose here!</option>
+                                <% locals.names.forEach(name => { %>
+                                    <option value='<%= name.toString() %>'><%= name %></option>
+                                <% }) %>
+                            </select>
+                            </form>
+                        <% } else if (locals.score) { %>
+                            <label for="name">Choose a player</label><br>
+                            <select name="name" id="name" disabled>
+                                    <option value="Null"><%= locals.name %></option>
+                            </select>     
+                        <% } else { %>
+                            <label for="name">Choose a player</label><br>
+                            <select name="name" id="name" disabled>
+                                    <option value="Null">No results!</option>
+                            </select>                      
+                        <% } %>
+                    </td>
+                </tr>
             </table>
             </div>
             <br>
@@ -83,8 +133,8 @@
                         Rank
                     </td>
                 </tr>
-                <tr class="pageNumber">
-                    <td style="width: 170px; padding: 5px; border-radius:10px; background-color: white;">
+                <tr class="pageHead">
+                    <td style="width: 30%; padding: 5px; border-radius:10px; background-color: white;">
                         <div class="counter" data-target=<%= locals.score ? locals.score : '0' %>>0</div>
                     </td>
                     <td style="width:5px"></td>
@@ -100,6 +150,7 @@
         <footer>
             <i>©2022 The University of Manchester Mahjong Society, all rights reserved</i>
         </footer>
+        </div>
     </body>
 
 </html>

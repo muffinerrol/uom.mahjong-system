@@ -55,29 +55,24 @@
             </div>
             <br>
             <div>
-            <table style="border-radius: 10px; padding: 5px; background: white;">
-                <tr class="mobile">
-                    <td colspan="2" style="width: 160px">
+            <!--Desktop version-->
+            <table class="desktop" style="border-radius: 10px; padding: 5px; background: white;">
+                <tr style="height: 45px">
+                    <td rowspan="3" style="width: 160px">
                         <img src=<%- locals.loggedName ? "/img/folder.png" : "/img/padlock.png" %> alt="Warning" style="display: block; margin-right: auto; margin-left: auto; width:150px; height:150px;">
                     </td>
-                </tr>
-                <tr>
-                    <td class="desktop" rowspan="3" style="width: 160px">
-                        <img src=<%- locals.loggedName ? "/img/folder.png" : "/img/padlock.png" %> alt="Warning" style="display: block; margin-right: auto; margin-left: auto; width:150px; height:150px;">
-                    </td>
-                    <td colspan="2" class="pageSubHead">
+                    <td colspan="2" style="font-family: Futura-Heavy; font-size: 30px;">
                         <%- !locals.loggedName ? 'Sign in' : 'Welcome back!' %>
                     </td>
                 </tr>
-                <tr>
+                <tr style="height: 35px">
                     <td colspan="2" class="pageCont" style="vertical-align:top">
                         <% if (!locals.playerName && !locals.loggedName) { %>What is your current player name?
                         <% } else if (!locals.loggedName) { %>Signing in as <i><%= locals.playerName %></i>
                         <% } else { %>You are currently <i><%= locals.loggedName %></i><br>What would be your new player name?<% } %>
                     </td>
                 </tr>
-            <!--Desktop version-->
-                <tr class="desktop">
+                <tr>
                 <% if (!locals.playerName && !locals.loggedName) { %>
                 <td class="pageCont" style="vertical-align:top; width: 250px">
                     <form>
@@ -126,54 +121,78 @@
                 </td>
                 <% } %>
                 </tr>
+            </table>
             <!--Mobile version-->
-                <tr class="mobile">
-                    <td class="pageCont" style="vertical-align:top;">
-                    <% if (!locals.playerName && !locals.loggedName) { %>
-                        <form>
-                            <label for="query">Search for a name</label><br>
-                            <div style="display: flex;"><input type="text" name="query" size="1px" style="flex: 1; flex-basis: 0;" required>&nbsp;<input type="submit" value="Google!"></div>
-                        </form>
-                    <% } else if (!locals.loggedName) { %>
-                        <form method="post">
-                            <label for="studentID">For security, please enter your student ID.</label><br>
-                            <input type="hidden" id="playerName" name="playerName" value='<%=locals.playerName%>'>
-                            <div style="display: flex;"><input type="password" name="studentID" size="1px" style="flex: 1; flex-basis: 0;" required>&nbsp;<input type="submit" value="Sign in">&nbsp;<a href="/rename"><small>Return</small></a></div>
-                        </form>
-                        <%- locals.logged == false ? '<span style="color: red"><small><i>Student ID incorrect!</i></small></span>' : '' %>
-                    <% } else { %>
-                        <form method="post">
-                            <label for="newName">New name</label><br>
-                            <input type="hidden" id="loggedName" name="loggedName" value='<%=locals.loggedName%>'>
-                            <div style="display: flex;"><input type="text" name="newName" size="1px" style="flex: 1; flex-basis: 0;" required>&nbsp;<input type="submit" value="Submit"></div>
-                        </form>
-                    <% } %>
+            <table class="mobile" style="border-radius: 10px; padding: 5px; background: white;">
+                <tr>
+                    <td colspan="2" style="width: 160px">
+                        <img src=<%- locals.loggedName ? "/img/folder.png" : "/img/padlock.png" %> alt="Warning" style="display: block; margin-right: auto; margin-left: auto; width:150px; height:150px;">
                     </td>
                 </tr>
-                <tr class="mobile">
-                    <td class="pageCont" style="vertical-align:top;">
-                    <% if (!locals.playerName && !locals.loggedName) { %>
-                        <% if (locals.names && locals.names.length > 0) { %>
-                            <form method="post">
-                            <label for="name">Choose a player</label><br>
-                            <select oninput="this.form.submit()" name="name" id="name">
-                                <option value="Null">Choose here!</option>
-                                <% locals.names.forEach(name => { %>
-                                    <option value='<%= name.toString() %>'><%= name %></option>
-                                <% }) %>
-                            </select>
-                            </form>
-                        <% } else { %>
-                            <label for="name">Choose a player</label><br>
-                            <select name="name" id="name" disabled>
-                                <option value="Null">No results!</option>
-                            </select>                      
-                    <% } %>
-                    <% } else if (locals.loggedName) { %>
-                        Other options<br>
-                        <input type="button" onclick="location.href='/rename'" value="Sign out">
-                    <% } %>
+                <tr>
+                    <td colspan="2" style="font-family: Futura-Heavy; font-size: 30px;">
+                        <%- !locals.loggedName ? 'Sign in' : 'Welcome back!' %>
                     </td>
+                </tr>
+                <tr style="height: 35px">
+                    <td colspan="2" class="pageCont" style="vertical-align:top">
+                        <% if (!locals.playerName && !locals.loggedName) { %>What is your current player name?
+                        <% } else if (!locals.loggedName) { %>Signing in as <i><%= locals.playerName %></i>
+                        <% } else { %>You are currently <i><%= locals.loggedName %></i><br>What would be your new player name?<% } %>
+                    </td>
+                </tr>
+                <tr>
+                <% if (!locals.playerName && !locals.loggedName) { %>
+                <td colspan="2" class="pageCont" style="vertical-align:top;">
+                    <form>
+                    <label for="query">Search for a name</label><br>
+                    <div style="display: flex;"><input type="text" name="query" size="1px" style="flex: 1; flex-basis: 0;" required>&nbsp;<input type="submit" value="Google!"></div>
+                    </form>
+                </td>
+                </tr>
+                <tr>
+                <td colspan="2" class="pageCont" style="vertical-align:top">
+                    <% if (locals.names && locals.names.length > 0) { %>
+                        <form method="post">
+                        <label for="name">Choose a player</label><br>
+                        <select oninput="this.form.submit()" name="name" id="name">
+                            <option value="Null">Choose here!</option>
+                            <% locals.names.forEach(name => { %>
+                                <option value='<%= name.toString() %>'><%= name %></option>
+                            <% }) %>
+                        </select>
+                        </form>
+                    <% } else { %>
+                        <label for="name">Choose a player</label><br>
+                        <select name="name" id="name" disabled>
+                            <option value="Null">No results!</option>
+                        </select>                      
+                    <% } %>
+                </td>
+                <% } else if (!locals.loggedName) { %>
+                <td colspan="2" class="pageCont" style="vertical-align:top">
+                    <form method="post">
+                    <label for="studentID">For security, please enter your student ID.</label><br>
+                    <input type="hidden" id="playerName" name="playerName" value='<%=locals.playerName%>'>
+                    <div style="display: flex;"><input type="password" name="studentID" size="1px" style="flex: 1; flex-basis: 0;" required>&nbsp;<input type="submit" value="Sign in">&nbsp;<a href="/rename"><small>Return</small></a></div>
+                    </form>
+                    <%- locals.logged == false ? '<span style="color: red"><small><i>Student ID incorrect!</i></small></span>' : '' %>
+                </td>
+                <% } else { %>
+                <td class="pageCont" style="vertical-align:top;">
+                    <form method="post">
+                    <label for="newName">New name</label><br>
+                    <input type="hidden" id="loggedName" name="loggedName" value='<%=locals.loggedName%>'>
+                    <div style="display: flex;"><input type="text" name="newName" size="1px" style="flex: 1; flex-basis: 0;" required>&nbsp;<input type="submit" value="Submit"></div>
+                    </form>
+                </td>
+                </tr>
+                <tr>
+                <td class="pageCont" style="vertical-align:top;">
+                    Other options<br>
+                    <input type="button" onclick="location.href='/rename'" value="Sign out">
+                </td>
+                <% } %>
                 </tr>
             </table>
             </div>
