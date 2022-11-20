@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Ouch! Here's a 404.">
-        <title>Homepage - UoM Mahjong Society</title>
+        <title>404 - UoM Mahjong Society</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" type="text/css" href="/css/index.css">
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -12,25 +13,44 @@
     </head>
     <body>
         <!--This is a comment-->
+        <div class="resizer">
         <header>
             <div class="navBar">
-            <ul class="navBar">
-                <li class="navBar"><a class="navBar" href="/">Home</a></li>
-                <li class="navBar"><a class="navBar" href="/check">Check your score</a></li>
-                <li class="navBar"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
-                <li class="navBar"><a class="navBar" href="/rename">Change your name</a></li>
-                <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
-            </ul>
-            </div>
+                <ul class="navBar">
+                    <li class="navBarActive"><a class="navBar" href="/">Home</a></li>
+                    <li class="navBar"><a class="navBar" href="/check">Check your score</a></li>
+                    <li class="navBar"><a class="navBar" href="/leaderboard">The leaderboard</a></li>
+                    <li class="navBar"><a class="navBar" href="/rename">Change your name</a></li>
+                    <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+                </ul>
+                <ul class="navDrop">
+                    <span class="dropdown">
+                        <li class="navBarActive"><a class="navBar" onclick='document.getElementById("menu").classList.toggle("show");'>Oopsie</a>
+                        <div id="menu" class="dropdown-content">
+                            <a href="/">Home</a>
+                            <a href="/check">Check your score</a>
+                            <a href="/leaderboard">The leaderboard</a>
+                            <a href="/rename">Change your name</a>
+                        </div>
+                        </li>
+                    </span>
+                    <li style="float: right;"><a title="Return to our Linktree page" href="https://linktr.ee/mahjong.uom" style="display: flex; align-items: center;"><img src="./img/logo.png" alt="Logo" style="width:40px; height:40px;"></a></li>
+                </ul>
+                </div>
         </header>
         <main>
             <div>
             <table style="border-radius: 10px; padding: 5px; background: white;">
+                <tr class="mobile" style="height: 40px">
+                    <td style="width: 160px">
+                        <img src="/img/heartbeat.png" alt="Warning" style="display: block; margin-right: auto; margin-left: auto; width:150px; height:150px;">
+                    </td>
+                </tr>
                 <tr style="height: 40px">
-                    <td rowspan="2" style="width: 160px">
+                    <td rowspan="2" class="desktop" style="width: 160px">
                         <img src="/img/heartbeat.png" alt="Error" style="display: block; margin-right: auto; margin-left: auto; width:150px; height:150px;">
                     </td>
-                    <td style="font-family: Futura-Heavy; font-size: 30px">
+                    <td class="pageSubHead">
                         404!
                     </td>
                 </tr>
@@ -46,5 +66,6 @@
         <footer>
             <i>©2022 The University of Manchester Mahjong Society, all rights reserved<br>Image by <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546696.htm#&position=7&from_view=collections">Freepik</a></i>
         </footer>
+        </div>
     </body>
 </html>
