@@ -35,19 +35,19 @@ ul.navBar, ul.navDrop {
 
 li.navBar {
   float: left;
-  border-right: 3px solid rgb(255, 234, 196);
+  border-right: 3px solid rgb(21, 15, 56);
   border-radius:10px 10px 0 0;
 }
 
 li.navBarActive {
   float: left;
   background-color: white;
-  border-right: 3px solid rgb(255, 234, 196);
+  border-right: 3px solid rgb(21, 15, 56);
   border-radius:10px 10px 0 0;
 }
 
 li.navBar:hover:not(.navBarActive) {
-  background-color: rgb(255, 196, 0);
+  background-color: rgb(255, 117, 117);
 }
 
 a.navBar {
@@ -56,8 +56,12 @@ a.navBar {
   text-align: center;
   padding: 10px 10px;
   text-decoration: none;
-  color:black;
+  color:white;
   cursor: pointer;
+}
+
+li.navBarActive a.navBar {
+  color:black;
 }
 
 .dropdown-content {
@@ -82,7 +86,7 @@ a.navBar {
 }
 
 .dropdown-content a:hover {
-  background-color: rgb(255, 196, 0);
+  background-color: rgb(255, 117, 117);
 }
 
 .show {
@@ -99,7 +103,7 @@ div.resizer {
 }
 
 body {
-  background-color: rgb(255, 234, 196);
+  background-color: rgb(21, 15, 56);
 }
 
 table {
@@ -123,6 +127,7 @@ td.rank {
   .pageHead {
     font-family: "Futura-Heavy";
     font-size: max(10vw, 35px);
+    color:rgb(12, 130, 40);
   }
 
   .pageSubHead {
@@ -149,6 +154,7 @@ td.rank {
     text-align: center;
     font-family: "Quicksand-Medium";
     font-size: 2vw;
+    color: white;
   }
 
   #name {
@@ -164,6 +170,7 @@ td.rank {
   .pageHead {
     font-family: "Futura-Heavy";
     font-size: 60px;
+    color:rgb(12, 130, 40);
   }
 
   .pageSubHead {
@@ -190,6 +197,7 @@ td.rank {
     text-align: center;
     font-family: "Quicksand-Medium";
     font-size: 12px;
+    color: white;
   }
 
   #name {
