@@ -75,6 +75,10 @@ exports.leaderboard = async function () {
     });
 
     const playerData = playerScoreSheet.data.values.filter(item => item[1]);
+    if (playerData.length == 0) {
+        return false;
+    }
+
     playerData.sort((a, b) => parseInt(b[1]) - parseInt(a[1]));
     
     let topTen = playerData.slice(0, 10);
