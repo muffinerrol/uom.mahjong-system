@@ -69,7 +69,7 @@
                         Score
                     </td>
                 </tr>
-                <% locals.players.forEach( player => { %>
+                <% if (players != false) { locals.players.forEach( player => { %>
                 <tr class="pageRank">
                     <td class="rank" style="text-align: center; font-family:Futura-Heavy; color:rgb(229, 34, 34);">
                         <%= player[0] %>
@@ -83,7 +83,21 @@
                         <%= player[2] %>
                     </td>
                 </tr>
-                <% } ) %>
+                <% } ) } else { %>
+                    <tr class="pageRank">
+                        <td class="rank" style="text-align: center; font-family:Futura-Heavy;">
+                            *
+                        </td>
+                        <td style="width:5px"></td>
+                        <td class="rank" style="border-radius:10px 3px 3px 10px;">
+                            Leaderboard is currently empty!
+                        </td>
+                        <td style="width:2px"></td>
+                        <td class="rank" style="border-radius:3px 10px 10px 3px;">
+                            *
+                        </td>
+                    </tr>
+                <% } %>
             </table>
             </div>
             <br>
