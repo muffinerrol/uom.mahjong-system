@@ -61,7 +61,7 @@
                         <img src=<%- locals.loggedName ? "/img/folder.png" : "/img/padlock.png" %> alt="Warning" style="display: block; margin-right: auto; margin-left: auto; width:150px; height:150px;">
                     </td>
                 </tr>
-                <tr>
+                <tr style="height: 40px">
                     <td class="desktop" rowspan="3" style="width: 160px">
                         <img src=<%- locals.loggedName ? "/img/folder.png" : "/img/padlock.png" %> alt="Warning" style="display: block; margin-right: auto; margin-left: auto; width:150px; height:150px;">
                     </td>
@@ -70,14 +70,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="pageCont" style="vertical-align:top">
+                    <td colspan="2" class="pageCont" style="vertical-align:top;">
                         <% if (!locals.playerName && !locals.loggedName) { %>What is your current player name?
                         <% } else if (!locals.loggedName) { %>Signing in as <i><%= locals.playerName %></i>
                         <% } else { %>You are currently <i><%= locals.loggedName %></i><br>What would be your new player name?<% } %>
                     </td>
                 </tr>
             <!--Desktop version-->
-                <tr class="desktop">
+                <tr class="desktop" style="height: 70px">
                 <% if (!locals.playerName && !locals.loggedName) { %>
                 <td class="pageCont" style="vertical-align:top; width: 250px">
                     <form>
